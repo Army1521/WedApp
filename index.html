@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>🛑เว็บแอพปิดปรับปรุง</title>
-  <style>
+ <style>
     :root{
       --bg:#0f1724;
       --card:#0b1220;
@@ -43,9 +43,31 @@
       .side{order:2}
     }
 
-    .main{
-      padding:48px;
-      min-height:320px;
+    /* เพิ่มสำหรับมือถือ */
+    @media (max-width:600px){
+      body{padding:8px;}
+      .wrap{
+        border-radius:8px;
+        box-shadow: 0 2px 12px rgba(2,6,23,0.5);
+      }
+      .main{
+        padding:18px 12px;
+        min-height:unset;
+      }
+      .side{
+        padding:14px 8px;
+        gap:10px;
+      }
+      h1{font-size:20px;}
+      .logo .mark{width:36px;height:36px;font-size:18px;}
+      .countdown .box{min-width:54px;padding:10px 6px;}
+      .countdown .num{font-size:16px;}
+      .countdown .lbl{font-size:12px;}
+      .subscribe input[type="email"]{padding:10px 8px;font-size:15px;}
+      .subscribe button{padding:10px 10px;font-size:15px;}
+      .socials a{width:32px;height:32px;font-size:15px;}
+      footer.note{font-size:12px;}
+      .small{font-size:12px;}
     }
     .logo{
       display:flex;
@@ -92,7 +114,7 @@
       font-weight:700;
     }
     .countdown .lbl{
-      font-size:12px;
+      font-size:15px;
       color:var(--muted);
       margin-top:6px;
     }
