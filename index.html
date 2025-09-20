@@ -1,320 +1,251 @@
-<!DOCTYPE html>
-<html lang="en">
-<html>
-
+<!doctype html>
+<html lang="th">
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>ลงทะเบียนข้อมูลกำลังพล ร้อย.ปชด.ที่ 1</title>
-  <link rel="stylesheet" type="text/css" href="style.css"> 
-  <link rel="icon" type="image/png" sizes="32x32" href=".\โลโก้กองร้อยไม่มีที่32x32.png"/>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
-  <link href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <!--<?!= HtmlService.createHtmlOutputFromFile('style.css').getContent() ? >-->
-  </script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>🛑เว็บแอพปิดปรับปรุง</title>
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --accent:#22c1c3;
+      --muted:#9aa4b2;
+      --white:#ffffff;
+      --radius:12px;
+      font-family: 'kanit', sans-serif;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: linear-gradient(135deg, #071021 0%, #0f1724 60%);
+      color:var(--white);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+    }
+
+    .wrap{
+      width:100%;
+      max-width:920px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:var(--radius);
+      box-shadow: 0 6px 28px rgba(2,6,23,0.7);
+      overflow:hidden;
+      display:grid;
+      grid-template-columns: 1fr 420px;
+    }
+
+    /* responsive */
+    @media (max-width:880px){
+      .wrap{grid-template-columns:1fr}
+      .side{order:2}
+    }
+
+    .main{
+      padding:48px;
+      min-height:320px;
+    }
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-bottom:18px;
+    }
+    .logo .mark{
+      width:48px;
+      height:48px;
+      background:linear-gradient(135deg,var(--accent),#7b61ff);
+      border-radius:10px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      color:#052028;
+      box-shadow: 0 6px 18px rgba(34,193,195,0.12);
+    }
+    h1{
+      margin:0 0 8px 0;
+      font-size:26px;
+      letter-spacing: -0.4px;
+    }
+    p.lead{
+      margin:0 0 20px 0;
+      color:var(--muted);
+    }
+
+    .countdown{
+      display:flex;
+      gap:12px;
+      margin:18px 0 28px 0;
+    }
+    .countdown .box{
+      background:rgba(255,255,255,0.03);
+      padding:14px 16px;
+      border-radius:10px;
+      min-width:74px;
+      text-align:center;
+    }
+    .countdown .num{
+      font-size:20px;
+      font-weight:700;
+    }
+    .countdown .lbl{
+      font-size:12px;
+      color:var(--muted);
+      margin-top:6px;
+    }
+
+    .subscribe{
+      display:flex;
+      gap:10px;
+      margin-top:6px;
+    }
+    .subscribe input[type="email"]{
+      flex:1;
+      padding:12px 14px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.06);
+      background:transparent;
+      color:var(--white);
+      outline:none;
+    }
+    .subscribe button{
+      padding:12px 16px;
+      background:var(--accent);
+      color:#042427;
+      border:none;
+      border-radius:10px;
+      cursor:pointer;
+      font-weight:700;
+    }
+    .subscribe small{display:block;color:var(--muted);margin-top:8px}
+
+    .side{
+      background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));
+      padding:32px;
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+      align-items:flex-start;
+      justify-content:center;
+    }
+    .status{
+      background:rgba(255,255,255,0.02);
+      padding:12px 14px;
+      border-radius:10px;
+      width:100%;
+      color:var(--muted);
+    }
+
+    .socials{
+      display:flex;
+      gap:10px;
+      margin-top:6px;
+    }
+    .socials a{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:40px;height:40px;
+      border-radius:8px;
+      background:rgba(255,255,255,0.03);
+      color:var(--white);
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    footer.note{
+      color:var(--muted);
+      font-size:13px;
+      margin-top:10px;
+    }
+
+    .small{
+      font-size:13px;color:var(--muted)
+    }
+  </style>
 </head>
-<!--div class="container d-flex align-items-center justify-content-center min-vh-100"-->
-<div class="wrapper">
-  <div class="title"> <i class="fas fa-chalkboard-teacher"></i> ลงทะเบียนข้อมูลกำลังพล<p> ร้อย.ปชด.ที่ 1<p> ประจำปีงบประมาณ 2568 </p>
-  </div>
-  <form class="form" id="myForm">
-    <!-- novalidate -->
-    <div class="inputfield">
-      <label>ยศ</label>
-      <select type="text" class="custom_select" id="ยศ" name="ยศ" required>
-        <option selected disabled value="">เลือกยศ</option>
-        <option value="ร.อ.">ร.อ.</option>
-        <option value="ร.ท.">ร.ท.</option>
-        <option value="ร.ต.">ร.ต.</option>
-        <option value="จ.ส.อ.">จ.ส.อ.</option>
-        <option value="จ.ส.ท.">จ.ส.ท.</option>
-        <option value="จ.ส.ต.">จ.ส.ต.</option>
-        <option value="ส.อ.">ส.อ.</option>
-        <option value="ส.ท.">ส.ท.</option>
-        <option value="ส.ต.">ส.ต.</option>
-        <option value="พลฯ">พลฯ</option>
-      </select>
-    </div>
-    <div class="inputfield">
-      <label>ชื่อ</label>
-      <input type="text" class="input" id="ชื่อ" name="ชื่อ" placeholder="ยอดรัก" required>
-    </div>
-    <div class="inputfield">
-      <label>นามสกุล</label>
-      <input type="text" class="input" id="สกุล" name="สกุล" placeholder="ทหารไทย" required>
-    </div>
-    <div class="inputfield">
-      <label>ฐานปฏิบัติการ</label>
-      <select type="text" class="custom_select" id="ฐานปฏิบัติการ" name="ฐานปฏิบัติการ" required>
-        <option selected disabled value="">เลือกฐานปฏิบัติการ</option>
-        <option value="บก.ร้อย.และ มว.ปชด.2 ฐป.โรงเรียนมาลาศีตะจิตต์">บก.ร้อย.และ มว.ปชด.2 ฐป.โรงเรียนมาลาศีตะจิตต์
-        </option>
-        <option value="มว.ปชด.1 ฐป.ฟาร์มตัวอย่าง">มว.ปชด.1 ฐป.ฟาร์มตัวอย่าง</option>
-        <option value="มว.ปชด.3 ฐป.ร่วมบ้านดีดะ">มว.ปชด.3 ฐป.ร่วมบ้านดีดะ</option>
-      </select>
-    </div>
-    <div class="inputfield">
-      <label>ตำแหน่งที่ตั้งปกติ</label>
-      <input type="text" class="input" id="ตำแหน่งที่ตั้งปกติ" name="ตำแหน่งที่ตั้งปกติ"
-        placeholder="เช่น ผบ.หมู่ หมู่ ปล.มว.ปล.ร้อย.อวบ.ร.152 พัน.1">
-    </div>
-    <div class="inputfield">
-      <label>สังกัดปกติ</label>
-      <select type="text" class="custom_select" id="สังกัดปกติ" name="สังกัดปกติ" required>
-        <option selected disabled value="">เลือกสังกัดปกติ</option>
-        <option value="พล.ร.15">พล.ร.15</option>
-        <option value="ร.152">ร.152</option>
-        <option value="ร.152 พัน.1">ร.152 พัน.1</option>
-      </select>
-    </div>
-    <div class="inputfield">
-      <label>สังกัดกองร้อยปกติ</label>
-      <select type="text" class="custom_select" id="สังกัดกองร้อยปกติ" name="สังกัดกองร้อยปกติ" required>
-        <option selected disabled value="">เลือกสังกัดกองร้อยปกติ</option>
-        <option value="ร้อย.บก.">ร้อย.บก.</option>
-        <option value="ร้อย.1">ร้อย.1</option>
-        <option value="ร้อย.2">ร้อย.2</option>
-        <option value="ร้อย.3">ร้อย.3</option>
-      </select>
-    </div>
-    <div class="inputfield">
-      <label>หมายเลขประจำตัวประชาชน</label>
-      <input type="text" class="input" id="หมายเลขประจำตัวประชาชน" name="หมายเลขประจำตัวประชาชน"
-        placeholder="x-xxxx-xxxxx-xx-x" onkeyup="autoTab(this)" minlength="13" maxlength="17" required>
-    </div>
-    <div class="inputfield">
-      <label>หมายเลขทหาร 10 หลัก</label>
-      <input type="text" class="input" id="หมายเลขทหาร10หลัก" name="หมายเลขทหาร10หลัก" placeholder="xxxxxxxxxx"
-        minlength="10" maxlength="10" required>
-    </div>
-    <div class="inputfield">
-      <label>หมายเลขปืน</label>
-      <input type="text" class="input" id="หมายเลขปืน" name="หมายเลขปืน" placeholder="xxxxxxx" minlength="7"
-        maxlength="7" required>
-    </div>
-    <div class="inputfield">
-      <label>กรุ๊ปเลือด</label>
-      <select type="text" id="กรุ๊ปเลือด" name="กรุ๊ปเลือด" class="custom_select" required>
-        <option selected disabled value="">เลือกกรุ๊ป</option>
-        <option value="A">A</option>
-        <option value="B">B</option>
-        <option value="AB">AB</option>
-        <option value="O">O</option>
-      </select>
-    </div>
-    <div class="inputfield">
-      <label>ภูมิลำเนา (บ้านเกิด)</label>
-      <textarea class="textarea" id="ที่อยู่ปัจจุบัน" name="ที่อยู่ปัจจุบัน"
-        placeholder="เช่น 999 ม.9 ต.ควนลัง อ.หาดใหญ่ จ.สงขลา 90110" required></textarea>
-    </div>
-    <div class="inputfield">
-      <label>หมายเลขโทรศัพท์</label>
-      <input type="text" class="input" id="หมายเลขโทรศัพท์" name="หมายเลขโทรศัพท์" placeholder="xxx-xxxxxxx"
-        onkeyup="autoPhone(this)" minlength="10" maxlength="11" required>
-    </div>
-<!--     <div class="inputfield">
-      <label>ฉีดวัคซีนโควิด เข็มที่ 1</label>
-      <input type="date" class="form-control" id="ฉีดวัคซีนโควิดเข็มที่1" name="ฉีดวัคซีนโควิดเข็มที่1" />
-    </div>
-    <div class="inputfield">
-      <label>ฉีดวัคซีนโควิด เข็มที่ 2</label>
-      <input type="date" class="form-control" id="ฉีดวัคซีนโควิดเข็มที่2" name="ฉีดวัคซีนโควิดเข็มที่2">
-    </div>
-    <div class="inputfield">
-      <label>ฉีดวัคซีนโควิด เข็มที่ 3</label>
-      <input type="date" class="form-control" id="ฉีดวัคซีนโควิดเข็มที่3" name="ฉีดวัคซีนโควิดเข็มที่3">
-    </div>
-    <div class="inputfield">
-      <label>ฉีดวัคซีนโควิด เข็มที่ 4</label>
-      <input type="date" class="form-control" id="ฉีดวัคซีนโควิดเข็มที่4" name="ฉีดวัคซีนโควิดเข็มที่4">
-    </div> -->
-    <div class="inputfield">
-      <label>ศาสนา</label>
-      <select type="text" id="ศาสนา" name="ศาสนา" class="custom_select" required>
-        <option selected disabled value="">เลือกศาสนา</option>
-        <option value="พุทธ">พุทธ</option>
-        <option value="อิสลาม">อิสลาม</option>
-        <option value="คริสต์">คริสต์</option>
-        <option value="ฮินดู">ฮินดู</option>
-      </select>
-    </div>
-    <div class="inputfield">
-      <label>พ.ส.ร. ครั้งที่ 1 นายทหาร/นายสิบ</label>
-      <input type="date" class="form-control" id="ได้รับเงินเพิ่มพิเศษสำหรับการสู้รบครั้งที่1"
-        name="ได้รับเงินเพิ่มพิเศษสำหรับการสู้รบครั้งที่1">
-    </div>
-    <div class="inputfield">
-      <label>พ.ส.ร. ครั้งที่ 2 นายทหาร/นายสิบ</label>
-      <input type="date" class="form-control" id="ได้รับเงินเพิ่มพิเศษสำหรับการสู้รบครั้งที่2"
-        name="ได้รับเงินเพิ่มพิเศษสำหรับการสู้รบครั้งที่2">
-    </div>
-    <div class="inputfield">
-      <label>พ.ส.ร. ครั้งที่ 3 นายทหาร/นายสิบ</label>
-      <input type="date" class="form-control" id="ได้รับเงินเพิ่มพิเศษสำหรับการสู้รบครั้งที่3"
-        name="ได้รับเงินเพิ่มพิเศษสำหรับการสู้รบครั้งที่3">
-    </div>
-    <div class="inputfield">
-      <label>พ.ส.ร. ครั้งที่ 4 นายทหาร/นายสิบ</label>
-      <input type="date" class="form-control" id="ได้รับเงินเพิ่มพิเศษสำหรับการสู้รบครั้งที่4"
-        name="ได้รับเงินเพิ่มพิเศษสำหรับการสู้รบครั้งที่4">
-    </div>
-    <div class="inputfield">
-      <label>บุคคลสนิท</label>
-      <input type="text" class="input" id="บุคคลสนิท" name="บุคคลสนิท" placeholder="นายรักรบ ทหารไทย" required>
-    </div>
-    <div class="inputfield">
-      <label>ความสัมพันธ์ บุคคลสนิท</label>
-      <select type="text" id="ความสัมพันธ์" name="ความสัมพันธ์" class="custom_select" required>
-        <option selected disabled value="">เลือกความสัมพันธ์</option>
-        <option value="บิดา">บิดา</option>
-        <option value="มารดา">มารดา</option>
-        <option value="พี่">พี่</option>
-        <option value="น้อง">น้อง</option>
-        <option value="ปู่">ปู่</option>
-        <option value="ย่า">ย่า</option>
-        <option value="ตา">ตา</option>
-        <option value="ยาย">ยาย</option>
-        <option value="คู่สมรส">คู่สมรส</option>
-        <option value="เพื่อนร่วมงาน">เพื่อนร่วมงาน</option>
-      </select>
-    </div>
-    <div class="inputfield">
-      <label>เบอร์โทรศัพท์
-        บุคคลสนิท</label>
-      <input type="text" class="input" id="เบอร์โทรศัพท์บุคคลสนิท" name="เบอร์โทรศัพท์บุคคลสนิท"
-        placeholder="xxx-xxxxxxx" onkeyup="autoPhone(this)" minlength="10" maxlength="11" required>
-    </div>
-    <div class="inputfield">
-      <label>วัน/เดือน/ปีเกิด ของกำลังพล</label>
-      <input type="date" class="form-control" id="วันเดือนปีเกิดของกำลังพล" name="วันเดือนปีเกิดของกำลังพล" required>
-    </div>
-    <div class="inputfield">
-      <label>อายุ ของกำลังพล</label>
-      <input type="text" class="input" id="อายุของกำลังพล" name="อายุของกำลังพล" placeholder="xx" minlength="2"
-        maxlength="2" required>
-    </div>
-    <!-- สร้าง Checkbox โดยให้ชื่อว่า my_checkbox   -->
-    <div class="checkbox"><input type="checkbox" name="my_checkbox" value="" required />&nbsp;ยอมรับข้อกำหนดและเงื่อนไข
+<body>
+  <div class="wrap" role="main" aria-labelledby="title">
+    <div class="main">
+      <div class="logo">
+        <div class="mark">TJ</div>
+        <div>
+          <div class="small">เว็บแอพเพื่อกำลังพล ร้อย.ปชด.ที่ 1</div>
+        </div>
+      </div>
+
+      <h1 id="title">📢ขออภัย 🚧 ปิดปรับปรุง</h1>
+      <p class="lead">🤟🏻ขอบคุณที่สนับสนุนทุกอย่าง🤟🏻</p>
+
+      <div aria-live="polite">
+        <div class="countdown" id="countdown" title="เวลาที่คาดว่าจะกลับมา">
+          <div class="box"><div class="num" id="days">--</div><div class="lbl">วัน</div></div>
+          <div class="box"><div class="num" id="hours">--</div><div class="lbl">ชั่วโมง</div></div>
+          <div class="box"><div class="num" id="minutes">--</div><div class="lbl">นาที</div></div>
+          <div class="box"><div class="num" id="seconds">--</div><div class="lbl">วินาที</div></div>
+        </div>
+      </div>
+
+      <p class="note small" style="margin-top:18px">
+        หากต้องการข้อมูลเร่งด่วน ☎️ ติดต่อ Line: <a href="https://line.me/ti/p/csItjgq4L6" style="color:var(--accent)">thirawat089</a>
       </p>
     </div>
-    <!-- สร้าง กดปุ่มนี้เพื่อบันทึกข้อมูล  -->
-    <div class="inputfield">
-      <input class="btn" type="submit" id="btn1" value="กดปุ่มนี้เพื่อบันทึกข้อมูล">
-      <!-- <button class="btn btn-primary" type="submit" style="display:none" disabled id="btn2">
-         <span class="spinner-border spinner-border-sm" role="status" ></span>
-         กำลังบันทึกข้อมูล...
-          </button> -->
-    </div>
-    <!-- สร้าง กดปุ่มนี้เพื่อบันทึกข้อมูล  -->
-    <div class="text"><img src=".\ทหาร-การ์ตูน.png" width="18" height="30"> พัฒนาโดย นายสิบท่องเที่ยว <img
-        src=".\ทหาร-การ์ตูน.png" width="18" height="30">
-      <p>" ร้อย.ปชด.ที่ 1 บก.ควบคุม สุริโยทัย "</p>
-    </div>
-    <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbzzS0W_vc_00ymy2RAF5DKgzwKb02p6J__ZX20FXS0gzOQHB4V6sX1u_M9TQHezWBzl/exec' 
-    const form = document.forms['myForm']
 
+  <script>
+    // ตั้งค่าเวลาที่คาดว่าจะกลับมา (ปรับ timezone ตามต้องการ)
+    // รูปแบบ ISO: YYYY-MM-DDTHH:MM:SS (ตัวอย่าง: 2025-09-20T12:00:00)
+    const returnAtISO = "2099-01-1";
 
-      form.addEventListener('submit', e => {
-        e.preventDefault()
-        fetch(scriptURL, {method: 'POST', body: new FormData(form)})
-          .then(response => Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'บันทึกข้อมูลเรียบร้อย',
-            //buttons: true,
-            confirmButtonText: '💂รับทราบ💂',
-            //timer: 1000 
-          }))
+    // ฟังก์ชัน countdown
+    function updateCountdown() {
+      const now = new Date();
+      const target = new Date(returnAtISO);
+      const diff = target - now;
 
-          .catch(error => console.error('Error!', error.message))
-          .catch.contact - form.reset();
+      if (diff <= 0) {
+        document.getElementById('countdown').style.display = 'none';
+        document.getElementById('msg').textContent = 'เว็บไซต์กลับมาแล้ว!';
+        return;
+      }
 
-        // $('#btn1').hide()
-        // $('#btn2').show()
-      })
+      const s = Math.floor(diff / 1000);
+      const days = Math.floor(s / 86400);
+      const hours = Math.floor((s % 86400) / 3600);
+      const minutes = Math.floor((s % 3600) / 60);
+      const seconds = s % 60;
 
+      document.getElementById('days').textContent = days;
+      document.getElementById('hours').textContent = String(hours).padStart(2,'0');
+      document.getElementById('minutes').textContent = String(minutes).padStart(2,'0');
+      document.getElementById('seconds').textContent = String(seconds).padStart(2,'0');
+    }
 
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
 
-//       $(function() {
-//       $("#btn1").on("click", function() {
-//       $("#btn2").toggle()
-//   });
-// });
+    // ฟังก์ชันรับอีเมล (ตัวอย่างแบบ client-side)
+    function onSubscribe(e){
+      e.preventDefault();
+      const email = document.getElementById('email').value.trim();
+      if (!email) return false;
 
-// if ( display === true ) {
-//   $( "#btn2" ).show();
-// } else if ( display === false ) {
-//   $( "#btn1" ).hide();
-// }
+      // ตัวอย่าง: ส่งอีเมลไปยัง API endpoint ของคุณด้วย fetch
+      // fetch('/api/notify', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({email}) })
+      //   .then(r=>r.json()).then(()=>{ ... });
 
-    // var forms = document.querySelectorAll('.needs-validation');
-    //         Array.prototype.slice.call( forms ).forEach( function( form )
-    //         {
-    //             form.addEventListener( 'submit', function ( event )
-    //             {
-    //                 if ( !form.checkValidity( ) )
-    //                 {
-    //                     event.preventDefault( )
-    //                     event.stopPropagation( );
-    //                 }
+      // ตัวอย่างการแสดงผลจำลอง
+      document.getElementById('msg').textContent = 'ขอบคุณ! เราจะแจ้งให้ทราบเมื่อเว็บไซต์กลับมา';
+      document.getElementById('email').value = '';
+      return false;
+    }
 
-    //                 form.classList.add( 'was-validated' );
-    //           }, false );
-    //         } );
-    </script>
-    <script src="https://unpkg.com/jquery@3.3.1/dist/jquery.min.js"></script>
-    <script src="https://unpkg.com/bootstrap@4.1.0/dist/js/bootstrap.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
-      integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <html>
-
-    <head>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-      <script>
-        function autoTab(obj) {
-          var pattern = new String("_-____-_____-_-__"); // กำหนดรูปแบบในนี้
-          var pattern_ex = new String("-"); // กำหนดสัญลักษณ์หรือเครื่องหมายที่ใช้แบ่งในนี้
-          var returnText = new String("");
-          var obj_l = obj.value.length;
-          var obj_l2 = obj_l - 1;
-          for (i = 0; i < pattern.length; i++) {
-            if (obj_l2 == i && pattern.charAt(i + 1) == pattern_ex) {
-              returnText += obj.value + pattern_ex;
-              obj.value = returnText;
-            }
-          }
-          if (obj_l >= pattern.length) {
-            obj.value = obj.value.substr(0, pattern.length);
-          }
-        }
-        function autoPhone(obj) {
-
-          var pattern = new String("___-_______");
-          var pattern_ex = new String("-");
-          var returnText = new String("");
-          var obj_l = obj.value.length;
-          var obj_l2 = obj_l - 1;
-          for (i = 0; i < pattern.length; i++) {
-            if (obj_l2 == i && pattern.charAt(i + 1) == pattern_ex) {
-              returnText += obj.value + pattern_ex;
-              obj.value = returnText;
-            }
-          }
-          if (obj_l >= pattern.length) {
-            obj.value = obj.value.substr(0, pattern.length);
-          }
-        }
-
-      </script>
-    </head>
+    // ใส่วันที่คืนใน side panel
+    document.getElementById('returnAt').textContent = new Date(returnAtISO).toLocaleString('th-TH', {
+      year:'numeric', month:'short', day:'numeric', hour:'2-digit', minute:'2-digit'
+    });
+  </script>
+</body>
+</html>
